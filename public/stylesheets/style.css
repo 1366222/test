@@ -1,0 +1,27 @@
+body {
+
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.bg-1 {
+  background-color: #1abc9c; /* Green */
+  color: #ffffff;
+}
+.bg-2 {
+  background-color: #474e5d; /* Dark Blue */
+  color: #ffffff;
+}
+.bg-3 {
+  background-color: #fff; /* White */
+  color: #555555;
+}
+
+.bg-4 {
+  background-color: #2f2f2f;
+  color: #ffffff;
+}
+
