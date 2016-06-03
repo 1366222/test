@@ -23,5 +23,5 @@ router.get('/', function(req, res, next) {
   });
 
 });
-
+//조우경 바보야
 module.exports = router;
