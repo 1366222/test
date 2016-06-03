@@ -17,9 +17,38 @@
 
 </head>
 <body>
-    {{{body}}}
-</body>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://127.0.0.1:3000/">ART-FI</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul id="myTab" class="nav navbar-nav">
+                <li ><a href="http://127.0.0.1:3000/" id="contact-tab"   >Home</a></li>
+                <li ><a href="http://127.0.0.1:3000/files" id="contact-tab" >fileupload</a></li>
+                <li ><a href="http://127.0.0.1:3000/users" id="contact-tab" >fileview</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<script type="text/javascript">
+    $("#myTab li").click(function() {
+        $("#myTab li").removeClass("active");
+        $(this).addClass('active');
+    });
+
+</script>
+
+    {{{body}}}
+
+</body>
 <footer class="container-fluid bg-4 text-center">
     <p>Maestro</p>
 </footer>
