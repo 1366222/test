@@ -1,6 +1,3 @@
-/**
- * Created by Choichanghyun on 2016. 6. 3..
- */
 var express = require('express');
 var s3= require('s3');
 var formidable= require('formidable');
@@ -11,13 +8,33 @@ var path =require('path');
 /* GET users listing. */
 var router = express.Router();
 
-router.post('/files', function (req, res) {
+global.client = s3.createClient({
+    maxAsyncS3: 20,     // this is the default
+    s3RetryCount: 3,    // this is the default
+    s3RetryDelay: 1000, // this is the default
+    multipartUploadThreshold: 20971520, // this is the default (20 MB)
+    multipartUploadSize: 15728640, // this is the default (15 MB)
+    s3Options: {
+        accessKeyId: "AKIAJUCH6NF2PDO6BYGA",
+        secretAccessKey: "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",
+        // any other options are passed to new AWS.S3()
+        // See: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#constructor-property
+    },
+});
+
+
+
+router.get('/', function(req, res, next) {
+    res.render('files');
+});
+
+
+router.post('/', function (req, res) {
+    console.log("sd");
     var form = new formidable.IncomingForm();
 
     form.parse(req, function (err, fields, files) {
-        //res.writeHead(200, {'content-type': 'text/plain'});
-        //res.write('received upload:\n\n');
-        //res.end(util.inspect({fields: fields, files: files}));
+
         var params = {
             localFile: files.test.path,
             s3Params: {
@@ -27,6 +44,7 @@ router.post('/files', function (req, res) {
                 // See: http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#putObject-property
             },
         };
+        console.log(files.test.name);
         var uploader = client.uploadFile(params);
         uploader.on('error', function (err) {
             console.error("unable to upload:", err.stack);
@@ -52,14 +70,8 @@ router.post('/files', function (req, res) {
             })
         });
     });
+    res.render('index');
 });
 
 
-router.get('/', function(req, res, next) {
-
-    res.render('files');
-});
-/**
- * Created by Choichanghyun on 2016. 6. 3..
- */
 module.exports = router;

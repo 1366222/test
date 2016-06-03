@@ -1,40 +1,15 @@
-<script type="text/javascript" >
-
-    var fileChooser = document.getElementById('file-chooser');
-    var button1 = document.getElementById('upload-button');
-    var results = document.getElementById('results');
-    button1.addEventListener('click', function() {
-
-        var file = fileChooser.files[0];
-        if (file) {
-            results.innerHTML = '';
-
-            bucket.putObject(params, function(err, data) {
-                if (err) {
-                    results.innerHTML = 'ERROR: ' + err;
-                } else {
-                    listObjs();
-                }
-            });
-        } else {
-            results.innerHTML = 'Nothing to upload.';
-        }
-    }, false);
-
-
-</script>
-
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home">
         <div class="bg-1">
             <div class="container text-center">
                 <h3>Who Am I?</h3>
                 <img src="https://s3.ap-northeast-2.amazonaws.com/maetrotest/ggobuk.png" style="display:inline" class="img-circle" alt="Bird" width="350" height="350">
-                <h3>I'm an adventurer</h3>
+                <h3  >I'm an adventurer</h3>
+                <div id="testt"></div>
             </div>
         </div>
         <div class="container-fluid bg-2 text-center">
-            <h3>What Am I?</h3>
+            <h3  >What Am I?</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
         <div class="container-fluid bg-3 text-center">
@@ -55,6 +30,4 @@
             </div>
         </div>
     </div>
-
-
 </div>
